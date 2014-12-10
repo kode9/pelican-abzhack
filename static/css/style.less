@@ -10,11 +10,56 @@
 @serif: 'PT Serif', serif;
 @mono: 'PT Mono', monospace;
 
+@zenburn-fg11: #FFFFEF;
+@zenburn-fg: #DCDCCC;
+@zenburn-fg01: #656555;
+
+@zenburn-bg02: #000000;
+@zenburn-bg01: #2B2B2B;
+@zenburn-bg005: #383838;
+@zenburn-bg: #3F3F3F;
+@zenburn-bg105: #494949;
+@zenburn-bg11: #4F4F4F;
+@zenburn-bg12: #5F5F5F;
+@zenburn-bg13: #6F6F6F;
+
+@zenburn-red11: #DCA3A3;
+@zenburn-red: #CC9393;
+@zenburn-red01: #BC8383;
+@zenburn-red02: #AC7373;
+@zenburn-red03: #9C6363;
+@zenburn-red04: #8C5353;
+
+@zenburn-orange: #DFAF8F;
+
+@zenburn-yellow: #F0DFAF;
+@zenburn-yellow01: #E0CF9F;
+@zenburn-yellow02: #D0BF8F;
+
+@zenburn-green01: #5F7F5F;
+@zenburn-green: #7F9F7F;
+@zenburn-green11: #8FB28F;
+@zenburn-green12: #9FC59F;
+@zenburn-green13: #AFD8AF;
+@zenburn-green14: #BFEBBF;
+
+@zenburn-cyan: #93E0E3;
+
+@zenburn-blue11: #94BFF3;
+@zenburn-blue: #8CD0D3;
+@zenburn-blue01: #7CB8BB;
+@zenburn-blue02: #6CA0A3;
+@zenburn-blue03: #5C888B;
+@zenburn-blue04: #4C7073;
+@zenburn-blue05: #366060;
+
+@zenburn-magenta: #DC8CC3;
+
 body {
   margin: 0;
   padding: 0;
-  background-color: @white;
-  color: @dark-grey;
+  background-color: @zenburn-bg;
+  color: @zenburn-yellow;
   font-family: @sans;
   font-size: 18px;
 }
@@ -70,7 +115,7 @@ aside {
       }
     }
   }
-}
+} /* aside */
 
 main {
   header {
@@ -168,7 +213,7 @@ main {
     color: @med-grey;
     font-size: 10px;
   }
-}
+} /* main */
 
 @media screen and (min-width: 1024px) {
   aside {
@@ -211,4 +256,4 @@ main {
       border-top: 0;
     }
   }
-}
+} /* 1024 width */
