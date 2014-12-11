@@ -1,91 +1,94 @@
 <!DOCTYPE html>
-<html lang="{{ DEFAULT_LANG }}">
+<!--[if lt IE 7]>      <html lang="{{ DEFAULT_LANG }}" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="{{ DEFAULT_LANG }}" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="{{ DEFAULT_LANG }}" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="{{ DEFAULT_LANG }}" class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="{{ AUTHOR }}">
+    <meta name="description" content="Posts and writings by {{ AUTHOR }}">
 
-<head>
-  <!-- ## for client-side less -->
-  <link rel="stylesheet/less" type="text/css" href="{{ SITEURL }}/theme/css/style.less">
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
-  <!-- <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css"> -->
-  <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygments.css">
-  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+    <title>
+      {{ SITENAME }}
+      {% block title %}{% endblock %}
+    </title>
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="{{ AUTHOR }}">
-  <meta name="description" content="Posts and writings by {{ AUTHOR }}">
+    <!-- for client-side less -->
+    <link rel="stylesheet/less" type="text/css" href="{{ SITEURL }}/theme/css/style.less">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygments.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
-  {% if FEED_ALL_ATOM %}
-  <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom" />
-  {% endif %}
-  {% if FEED_ALL_RSS %}
-  <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS" />
-  {% endif %}
+    {% if FEED_ALL_ATOM %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom" />
+    {% endif %}
+    {% if FEED_ALL_RSS %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS" />
+    {% endif %}
 
-  {% block head %}
-  {% endblock %}
-
-  <title>
-    {{ SITENAME }}
-    {% block title %}{% endblock %}
-  </title>
-
-  {% include "modules/analytics.html" %}
-</head>
-
-<body>
-  <aside>
-    <div id="user_meta">
-      <a href="{{ SITEURL }}">
-        {% if USER_LOGO_URL %}
-        <img src="{{ USER_LOGO_URL }}" alt="logo">
-        {% else %}
-        <img src="{{ SITEURL }}/theme/images/logo.png" alt="logo">
-        {% endif %}
-      </a>
-      <h2><a href="{{ SITEURL }}">{{ AUTHOR }}</a></h2>
-      <p>{{ TAGLINE }}</p>
-      <ul>
-        {% for title, link in MENUITEMS %}
-        <li><a href="{{ link }}">{{ title }}</a></li>
-        {% endfor %}
-        {% if DISPLAY_PAGES_ON_MENU %}{% for p in pages %}
-        <li><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-        {% endfor %}{% endif %}
-        {% for name, link in LINKS %}
-        <li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
-        {% endfor %}
-        {% for name, link in SOCIAL %}
-        <li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
-        {% endfor %}
-      </ul>
-    </div>
-  </aside>
-
-  <main>
-    <header>
-      <p>
-      <a href="{{ SITEURL }}">Index</a> &brvbar; <a href="{{ SITEURL }}/archives.html">Archives</a>
-      {% if FEED_ALL_ATOM %}
-      &brvbar; <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">Atom</a>
-      {% endif %}
-      {% if FEED_ALL_RSS %}
-      &brvbar; <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}">RSS</a>
-      {% endif %}
-      {% block header %}
-      {% endblock header %}
-      </p>
-    </header>
-
-    {% block content %}
+    {% block head %}
     {% endblock %}
 
-    {% block footer %}
-    {% endblock %}
+    <!-- {% include "modules/analytics.html" %} -->
+  </head>
 
-    <div id="ending_message">
-      <p>&copy; {{ AUTHOR }}. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. {% if INTERNET_DEFENSE_LEAGUE %}Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>{% endif %}.</p>
-    </div>
-  </main>
-  {% include "modules/idl.html" %}
-</body>
+  <body>
+    <aside>
+      <div id="user_meta">
+	<a href="{{ SITEURL }}">
+          {% if USER_LOGO_URL %}
+          <img src="{{ USER_LOGO_URL }}" alt="logo">
+          {% else %}
+          <img src="{{ SITEURL }}/theme/images/logo.png" alt="logo">
+          {% endif %}
+	</a>
+	<h2><a href="{{ SITEURL }}">{{ AUTHOR }}</a></h2>
+	<p>{{ TAGLINE }}</p>
+	<ul>
+          {% for title, link in MENUITEMS %}
+          <li><a href="{{ link }}">{{ title }}</a></li>
+          {% endfor %}
+          {% if DISPLAY_PAGES_ON_MENU %}{% for p in pages %}
+          <li><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+          {% endfor %}{% endif %}
+          {% for name, link in LINKS %}
+          <li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
+          {% endfor %}
+          {% for name, link in SOCIAL %}
+          <li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
+          {% endfor %}
+	</ul>
+      </div>
+    </aside>
+
+    <main>
+      <header>
+	<p>
+	  <a href="{{ SITEURL }}">Index</a> &brvbar; <a href="{{ SITEURL }}/archives.html">Archives</a>
+	  {% if FEED_ALL_ATOM %}
+	  &brvbar; <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">Atom</a>
+	  {% endif %}
+	  {% if FEED_ALL_RSS %}
+	  &brvbar; <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}">RSS</a>
+	  {% endif %}
+	  {% block header %}
+	  {% endblock header %}
+	</p>
+      </header>
+
+      {% block content %}
+      {% endblock %}
+
+      {% block footer %}
+      {% endblock %}
+
+      <div id="ending_message">
+	<p>&copy; {{ AUTHOR }}. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. {% if INTERNET_DEFENSE_LEAGUE %}Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>{% endif %}.</p>
+      </div>
+    </main>
+    {% include "modules/idl.html" %}
+  </body>
 </html>
