@@ -47,24 +47,39 @@
           {% else %}
           <img src="{{ SITEURL }}/theme/images/logo.png" alt="logo">
           {% endif %}
-	</a>
-	<h2><a href="{{ SITEURL }}">{{ AUTHOR }}</a></h2>
-	<p>{{ TAGLINE }}</p>
-	<ul>
-          {% for title, link in MENUITEMS %}
-          <li><a href="{{ link }}">{{ title }}</a></li>
-          {% endfor %}
-          {% if DISPLAY_PAGES_ON_MENU %}{% for p in pages %}
-          <li><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-          {% endfor %}{% endif %}
-          {% for name, link in LINKS %}
-          <li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
-          {% endfor %}
-          {% for name, link in SOCIAL %}
-          <li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
-          {% endfor %}
-	</ul>
-      </div>
+        </a>
+        <h2><a href="{{ SITEURL }}">{{ AUTHOR }}</a></h2>
+        {% if TAGLINE %}
+        <p>{{ TAGLINE }}</p>
+        {% endif %} <!-- TAGLINE -->
+
+        <div class="submenu">
+          <h3>Menu</h3>
+          <ul>
+            {% for title, link in MENUITEMS %}
+            <li><a href="{{ link }}">{{ title }}</a></li>
+            {% endfor %}
+            {% if DISPLAY_PAGES_ON_MENU %}{% for p in pages %}
+            <li><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+            {% endfor %}{% endif %}
+            {% for name, link in LINKS %}
+            <li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
+            {% endfor %}
+          </ul> <!-- main list -->
+	</div> <!-- submenu -->
+
+	{% if SOCIAL %}
+	<div class="submenu">
+          <h3>Social</h3>
+          <ul class="social">
+	    {% for name, link in SOCIAL %}
+	    <li><a href="{{ link }}" rel="author" target="_blank">{{ name }}</a></li>
+	    {% endfor %}
+	  </ul>
+	</div> <!-- submenu -->
+        {% endif %} <!-- SOCIAL -->
+
+      </div> <!-- user_meta -->
     </aside>
 
     <main>
