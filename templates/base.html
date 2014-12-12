@@ -11,6 +11,10 @@
     <meta name="author" content="{{ AUTHOR }}">
     <meta name="description" content="Posts and writings by {{ AUTHOR }}">
 
+    {% if AUTO_REFRESH %}
+    <meta http-equiv="refresh" content="1">
+    {% endif %} <!-- AUTO_REFRESH -->
+
     <title>
       {{ SITENAME }}
       {% block title %}{% endblock %}
